@@ -5,6 +5,8 @@ from .lcs import diff_ops
 
 def unified_diff(a: list[str], b: list[str], context: int = 3,
                  from_name: str = "a", to_name: str = "b") -> str:
+    if context < 0:
+        raise ValueError("context must be non-negative")
     ops = diff_ops(a, b)
     if all(op == " " for op, _ in ops):
         return ""
