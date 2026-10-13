@@ -21,3 +21,8 @@ def running_total(values):
         total += v
         out.append(total)
     return out
+
+
+def median(values):
+    """Median using the nearest-rank percentile helper."""
+    return percentile(values, 50)
