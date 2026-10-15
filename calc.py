@@ -26,3 +26,8 @@ def running_total(values):
 def median(values):
     """Median using the nearest-rank percentile helper."""
     return percentile(values, 50)
+
+
+def percent_change(before, after):
+    """Percent change from `before` to `after`."""
+    return (after - before) / before * 100
