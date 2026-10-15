@@ -28,5 +28,7 @@ class Budget:
         return (self.hits[0] + self.window_seconds) - time.time()
 
     def utilization(self):
-        # No guard: limit of zero raises ZeroDivisionError.
+        # Fixed: an unlimited budget is never under pressure.
+        if self.limit == 0:
+            return 0.0
         return len(self.hits) / self.limit
